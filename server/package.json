@@ -3,10 +3,12 @@
   "type": "module",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.mjs",
+  "main": "build/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.mjs"
+    "dev": "nodemon build/server.js",
+    "build": "npx tsc",
+    "buildDev": "npx tsc -w"
   },
   "keywords": [],
   "author": "Vitor Bastos",
@@ -16,6 +18,8 @@
     "express": "^4.18.1"
   },
   "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.7.16",
     "nodemon": "^2.0.19",
     "typescript": "^4.8.3"
   }
