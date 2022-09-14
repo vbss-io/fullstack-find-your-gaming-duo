@@ -1,11 +1,11 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import routes from './routes/index.js';
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = express();
-app.get('/ads', (_req, res) => {
-    return res.send('Hello World2!');
-});
-app.listen(PORT, () => {
+app.use('/ads', routes.adsRouter);
+const server = app.listen(PORT, () => {
     console.log(`Server is up on port ${PORT}`);
 });
+export default server;
