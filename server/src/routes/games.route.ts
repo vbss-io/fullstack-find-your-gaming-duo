@@ -8,7 +8,15 @@ const prisma = new PrismaClient({
 })
 
 gamesRouter.get('/', async (_req, res) => {
-  const games = await prisma.game.findMany();
+  const games = await prisma.game.findMany({ include:
+    {
+      _count: {
+        select: {
+          ads: true
+        }
+      }
+    }
+  })
 
   res.status(200).json(games);
 });
