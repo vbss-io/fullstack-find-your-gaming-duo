@@ -21,7 +21,8 @@ export function Home() {
   }
 
   useEffect(() => {
-    fetch('http://192.168.1.109:3000/games')
+    // fetch('http://192.168.1.109:3000/games')  Desktop
+    fetch('http://192.168.100.13:3000/games') // Laptop
       .then(response => response.json())
       .then(data => setGames(data));
   }, []);

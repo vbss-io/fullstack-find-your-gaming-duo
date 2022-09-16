@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TouchableOpacity, View, Image, FlatList } from 'react-native';
+import { TouchableOpacity, View, Image, FlatList, Text } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GameParams } from '../../@types/navigation';
@@ -25,7 +25,8 @@ export function Games() {
   }
 
   useEffect(() => {
-    fetch(`http://192.168.1.109:3000/ads/game/${game.id}`)
+    // fetch(`http://192.168.1.109:3000/ads/game/${game.id}`)  Desktop
+    fetch(`http://192.168.100.13:3000/ads/game/${game.id}`) // Laptop
       .then(response => response.json())
       .then(data => setDuos(data));
   }, []);
@@ -66,7 +67,17 @@ export function Games() {
           renderItem={({ item }) => (
             <DuoCard
               data={item}
+              onConnect={() => {}}
             />
+          )}
+          style={styles.containerList}
+          horizontal
+          contentContainerStyle={[duos.length > 0 ? styles.contentList : styles.emptyListContainer ]}
+          showsHorizontalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <Text style={styles.emptyListText}>
+              Nenhum duo encontrado
+            </Text>
           )}
         />
 
