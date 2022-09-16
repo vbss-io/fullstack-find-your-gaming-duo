@@ -39,9 +39,9 @@ export function DuoCard({ data }: Props) {
         colorValue={data.useVoiceChat ? THEME.COLORS.SUCCESS : THEME.COLORS.ALERT}
       />
 
-      <TouchableOpacity style={styles.button}>
-        
-      </TouchableOpacity>
+      {/* <TouchableOpacity style={styles.button}>
+
+      </TouchableOpacity> */}
     </View>
   );
 }
