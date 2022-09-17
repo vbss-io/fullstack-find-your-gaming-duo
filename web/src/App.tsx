@@ -8,6 +8,14 @@ import { CreateAdModal } from './components/CreateAdModal';
 import axios from 'axios';
 import './styles/main.css';
 
+//Dicas
+// responsividade
+// keen-slider -> Carrossel de imagens
+// radix
+// react hook forms
+// zod -> validação
+// autenticação
+
 
 function App() {
   const [games , setGames] = useState<IGame[]>([]);
